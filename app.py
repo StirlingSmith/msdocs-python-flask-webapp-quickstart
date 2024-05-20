@@ -121,6 +121,7 @@ def configure():
                     <div style="display: flex; align-content: center;font-size: 18px;">Press save to continue</div>
                 </div>
             </header>
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
             <script src="https://statics.teams.microsoft.com/sdk/v1.8.0/js/MicrosoftTeams.min.js"></script>
             <script>
                 microsoftTeams.initialize();
