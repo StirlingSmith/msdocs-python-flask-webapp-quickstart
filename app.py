@@ -109,7 +109,7 @@ def process_call_llm_async(text):
 
 
 
-@app.route('/configure')
+@app.route('/configure', methods=["GET"])
 def configure():
     conf_html = """<body>
         <header class="header">
