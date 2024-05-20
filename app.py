@@ -127,9 +127,9 @@ def configure():
                 microsoftTeams.appInitialization.notifySuccess();
                 microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
                     microsoftTeams.settings.setSettings({
-                        entityID: "{{App Name}}",
+                        entityID: "llull-blagh",
                         contentUrl: `${window.location.origin}/index.html`,
-                        suggestedTabName: "{{App Name}}",
+                        suggestedTabName: "llull-blagh",
                         websiteUrl: `${window.location.origin}/index.html`,
                     });
                     saveEvent.notifySuccess();
@@ -138,6 +138,22 @@ def configure():
                 });
                 microsoftTeams.settings.setValidityState(true);
             </script>
+    </body>"""
+    return conf_html
+
+
+@app.route('/index.html', methods=["GET"])
+def index():
+    conf_html = """<body>
+        <header class="header">
+            <header class="header">
+                <div class="header-inner-container">
+                    <div style="display: flex; align-content: center; font-size: 24px;">Welcome to llull-blagh App</div>
+                </div>
+                <div class="header-inner-container">
+                    <div style="display: flex; align-content: center;font-size: 18px;">Press save to continue</div>
+                </div>
+            </header>
     </body>"""
     return conf_html
 
