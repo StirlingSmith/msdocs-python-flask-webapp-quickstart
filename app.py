@@ -107,6 +107,43 @@ def process_call_llm_async(text):
         #     channel=channel_id, text="PROMPT: \n"+text+"\n"+str(output.result))
 
 
+
+
+@app.route('/configure')
+def configure():
+    conf_html = """<body>
+        <header class="header">
+            <header class="header">
+                <div class="header-inner-container">
+                    <div style="display: flex; align-content: center; font-size: 24px;">Welcome to {{App Name}} App</div>
+                </div>
+                <div class="header-inner-container">
+                    <div style="display: flex; align-content: center;font-size: 18px;">Press save to continue</div>
+                </div>
+            </header>
+            <script src="https://statics.teams.microsoft.com/sdk/v1.8.0/js/MicrosoftTeams.min.js"></script>
+            <script>
+                microsoftTeams.initialize();
+                microsoftTeams.appInitialization.notifySuccess();
+                microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+                    microsoftTeams.settings.setSettings({
+                        entityID: "{{App Name}}",
+                        contentUrl: `${window.location.origin}/index.html`,
+                        suggestedTabName: "{{App Name}}",
+                        websiteUrl: `${window.location.origin}/index.html`,
+                    });
+                    saveEvent.notifySuccess();
+                    microsoftTeams.settings.setValidityState(true);
+                    // microsoftTeams.appInitialization.notifyAppLoaded();
+                });
+                microsoftTeams.settings.setValidityState(true);
+            </script>
+    </body>"""
+    return conf_html
+
+
+
+
 # Start the server on port 3000
 if __name__ == "__main__":
   app.run(port=3000)
