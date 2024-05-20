@@ -1,0 +1,230 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "version": "1.0.8",
+    "manifestVersion": "1.17",
+    "id": "099f4e21-281b-4e6f-ad52-6fbeef541476",
+    "name": {
+      "short": "llull-blagh",
+      "full": ""
+    },
+    "developer": {
+      "name": "BBS Inverence",
+      "mpnId": "",
+      "websiteUrl": "https://llull-teams-test.azurewebsites.net/",
+      "privacyUrl": "https://www.google.com",
+      "termsOfUseUrl": "https://www.google.com"
+    },
+    "description": {
+      "short": "Test app for teams",
+      "full": "hetnusaotsnah"
+    },
+    "icons": {
+      "outline": "outline.png",
+      "color": "color.png"
+    },
+    "accentColor": "#FFFFFF",
+    "configurableTabs": [
+      {
+        "configurationUrl": "https://llull-teams-test.azurewebsites.net/configure",
+        "canUpdateConfiguration": false,
+        "scopes": [
+          "groupChat",
+          "team"
+        ],
+        "context": [
+          "channelTab"
+        ]
+      }
+    ],
+    "staticTabs": [
+      {
+        "entityId": "fe09b011-273f-4e17-a98b-4c54d80b6b46",
+        "name": "personal tab",
+        "contentUrl": "https://www.google.com",
+        "scopes": [
+          "personal"
+        ],
+        "context": [
+          "personalTab"
+        ]
+      },
+      {
+        "entityId": "conversations",
+        "scopes": [
+          "personal"
+        ]
+      },
+      {
+        "entityId": "about",
+        "scopes": [
+          "personal"
+        ]
+      }
+    ],
+    "bots": [
+      {
+        "botId": "264bb84f-e07f-463b-9cd0-5e004b3b7f0d",
+        "scopes": [
+          "team",
+          "personal",
+          "groupChat"
+        ],
+        "commandLists": [
+          {
+            "commands": [
+              {
+                "title": "/chat",
+                "description": "call the chat"
+              },
+              {
+                "title": "/llull-chat",
+                "description": "send request to llull?"
+              }
+            ],
+            "scopes": [
+              "personal"
+            ]
+          },
+          {
+            "commands": [
+              {
+                "title": "/chat",
+                "description": "call the chat"
+              },
+              {
+                "title": "/llull-chat",
+                "description": "send request to llull?"
+              }
+            ],
+            "scopes": [
+              "team"
+            ]
+          },
+          {
+            "commands": [
+              {
+                "title": "/chat",
+                "description": "call the chat"
+              },
+              {
+                "title": "/llull-chat",
+                "description": "send request to llull?"
+              }
+            ],
+            "scopes": [
+              "groupChat"
+            ]
+          }
+        ],
+        "isNotificationOnly": true,
+        "supportsCalling": false,
+        "supportsVideo": false,
+        "supportsFiles": true
+      }
+    ],
+    "composeExtensions": [
+      {
+        "botId": "264bb84f-e07f-463b-9cd0-5e004b3b7f0d",
+        "isNotificationOnly": false,
+        "composeExtensionType": "botBased",
+        "commands": [
+          {
+            "id": "chat-test",
+            "type": "action",
+            "title": "llull-message",
+            "description": "",
+            "initialRun": true,
+            "fetchTask": false,
+            "context": [
+              "commandBox",
+              "compose",
+              "message"
+            ],
+            "parameters": [
+              {
+                "name": "text",
+                "title": "text",
+                "description": "your text query",
+                "inputType": "text"
+              }
+            ]
+          }
+        ],
+        "canUpdateConfiguration": true,
+        "messageHandlers": [
+          {
+            "type": "link",
+            "value": {
+              "domains": [
+                "llull-teams-test.azurewebsites.net"
+              ],
+              "supportsAnonymizedPayloads": false
+            }
+          }
+        ]
+      }
+    ],
+    "validDomains": [
+      "llull-teams-test.azurewebsites.net"
+    ],
+    "webApplicationInfo": {
+      "id": "81888abd-4b45-463a-9567-576d6bfbc4db",
+      "resource": ""
+    },
+    "devicePermissions": [
+      "notifications"
+    ],
+    "defaultGroupCapability": {
+      "team": "tab",
+      "groupchat": "tab"
+    },
+    "authorization": {
+      "permissions": {
+        "resourceSpecific": [
+          {
+            "name": "ChannelMessage.Send.Group",
+            "type": "Application"
+          },
+          {
+            "name": "ChannelMessage.Read.Group",
+            "type": "Application"
+          },
+          {
+            "name": "ChatMessage.Send.Chat",
+            "type": "Application"
+          },
+          {
+            "name": "ChatMessage.Read.Chat",
+            "type": "Application"
+          },
+          {
+            "name": "TeamsActivity.Send.User",
+            "type": "Application"
+          },
+          {
+            "name": "ChannelMeetingParticipant.Read.Group",
+            "type": "Application"
+          },
+          {
+            "name": "ChannelSettings.Read.Group",
+            "type": "Application"
+          },
+          {
+            "name": "Member.Read.Group",
+            "type": "Application"
+          },
+          {
+            "name": "Owner.Read.Group",
+            "type": "Application"
+          },
+          {
+            "name": "TeamMember.Read.Group",
+            "type": "Application"
+          }
+        ]
+      }
+    },
+    "supportedChannelTypes": [
+      "sharedChannels"
+    ]
+  }
