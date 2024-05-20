@@ -122,9 +122,21 @@ def configure():
                 </div>
             </header>
             <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-            <script src="https://statics.teams.cdn.office.net/sdk/v1.6.0/js/MicrosoftTeams.min.js"></script>
+            <script src="https://statics.teams.microsoft.com/sdk/v1.8.0/js/MicrosoftTeams.min.js"></script>
             <script>
                 microsoftTeams.initialize();
+                microsoftTeams.appInitialization.notifySuccess();
+                microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+                    microsoftTeams.settings.setSettings({
+                        entityID: "{{App Name}}",
+                        contentUrl: `${window.location.origin}/index.html`,
+                        suggestedTabName: "{{App Name}}",
+                        websiteUrl: `${window.location.origin}/index.html`,
+                    });
+                    saveEvent.notifySuccess();
+                    microsoftTeams.settings.setValidityState(true);
+                    // microsoftTeams.appInitialization.notifyAppLoaded();
+                });
                 microsoftTeams.settings.setValidityState(true);
             </script>
     </body>"""
